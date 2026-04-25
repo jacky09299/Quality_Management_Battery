@@ -1,5 +1,5 @@
 # Quality_Management_Battery
-##資料集準備、程式準備和套件安裝
+## 資料集準備、程式準備和套件安裝
 
 下載資料集：https://www.kaggle.com/datasets/patrickfleith/nasa-battery-dataset?resource=download
 
@@ -11,7 +11,7 @@
 
 pytorch套件安裝網址：https://pytorch.org/get-started/locally/
 
-##執行程式
+## 執行程式
 先執行preprocess.py，再執行train.py，最後執行test.py。
 
 以下是程式說明：
