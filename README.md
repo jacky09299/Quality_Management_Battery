@@ -1,12 +1,19 @@
 # Quality_Management_Battery
 ##資料集準備、程式準備和套件安裝
+
 下載資料集：https://www.kaggle.com/datasets/patrickfleith/nasa-battery-dataset?resource=download
+
 解壓縮後會看到一個資料夾cleaned_dataset，裡面有data資料夾、extra_infos資料夾、metadata.csv。
+
 從此github儲存庫中的資料夾"1.CNN前30分鐘數據預測SOH"中，把preprocess.py、train.py、test.py下載下來並放到cleaned_dataset資料夾裡。
+
 安裝python，並裝pytorch套件
+
 pytorch套件安裝網址：https://pytorch.org/get-started/locally/
+
 ##執行程式
 先執行preprocess.py，再執行train.py，最後執行test.py。
+
 以下是程式說明：
 ### 1. `preprocess.py` - 數據預處理與工程化
 這是專案的基礎模組，負責將原始觀測數據轉化為適合神經網路訓練的標準化特徵。
