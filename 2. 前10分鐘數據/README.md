@@ -1,0 +1,1 @@
+data資料夾和metadata.csv放在此資料夾，terminal進入best_model資料夾，依序執行preprocess.py, train.py, test.py
