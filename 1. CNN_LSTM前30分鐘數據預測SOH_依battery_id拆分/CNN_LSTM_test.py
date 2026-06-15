@@ -73,6 +73,8 @@ def main():
     x_range = np.linspace(xmin, xmax, 100)
     plt.plot(x_range, norm.pdf(x_range, mu, std_err), 'r', linewidth=2, label=f'mu={mu:.4f}\nsigma={std_err:.4f}')
     plt.title('Error Distribution (Gaussian Fit)')
+    plt.xlabel('Error (Ah)')
+    plt.ylabel('Density')
     plt.legend()
 
     # 圖 4: 誤差絕對值直方圖
@@ -81,6 +83,8 @@ def main():
     plt.hist(abs_err, bins=30, color='green', edgecolor='black', alpha=0.6)
     plt.axvline(x=np.mean(abs_err), color='red', linestyle='--', label=f'MAE={np.mean(abs_err):.4f}')
     plt.title('Error Magnitude Distribution')
+    plt.xlabel('Absolute Error (Ah)')
+    plt.ylabel('Frequency')
     plt.legend()
 
     plt.tight_layout()
@@ -97,11 +101,15 @@ def main():
     plt.scatter(all_targets_soh, all_preds_soh, alpha=0.5, color='blue')
     plt.plot([min(all_targets_soh), max(all_targets_soh)], [min(all_targets_soh), max(all_targets_soh)], 'r--')
     plt.title('Actual vs Predicted SOH (%)')
+    plt.xlabel('Actual SOH (%)')
+    plt.ylabel('Predicted SOH (%)')
     
     plt.subplot(2, 2, 2)
     plt.scatter(all_targets_soh, residuals_soh, alpha=0.5, color='purple')
     plt.axhline(y=0, color='red', linestyle='--')
     plt.title('Residual Plot (SOH %)')
+    plt.xlabel('Actual SOH (%)')
+    plt.ylabel('Error (%)')
 
     plt.subplot(2, 2, 3)
     mu_s, std_s = norm.fit(residuals_soh)
@@ -109,12 +117,16 @@ def main():
     x_s = np.linspace(plt.xlim()[0], plt.xlim()[1], 100)
     plt.plot(x_s, norm.pdf(x_s, mu_s, std_s), 'r', label=f'mu={mu_s:.3f}')
     plt.title('SOH Error Dist.')
+    plt.xlabel('Error (%)')
+    plt.ylabel('Density')
     plt.legend()
 
     plt.subplot(2, 2, 4)
     plt.hist(np.abs(residuals_soh), bins=30, color='green', alpha=0.6)
     plt.axvline(x=np.mean(np.abs(residuals_soh)), color='red', label=f'MAE={np.mean(np.abs(residuals_soh)):.3f}')
     plt.title('SOH Error Magnitude')
+    plt.xlabel('Absolute Error (%)')
+    plt.ylabel('Frequency')
     plt.legend()
 
     plt.tight_layout()
